@@ -3,9 +3,11 @@ set -eu
 
 if [ -n "${RENDER_EXTERNAL_URL:-}" ]; then
     render_app_url="${RENDER_EXTERNAL_URL%/}/"
-    export app_baseURL="${render_app_url}"
+else
+    render_app_url="http://localhost:10000/"
 fi
 
-export app_indexPage=""
-
-exec apache2-foreground
+exec env \
+    "app.baseURL=${render_app_url}" \
+    "app.indexPage=" \
+    apache2-foreground
