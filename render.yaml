@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: dejesus-pos
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: demonstration_ci4
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: CI_ENVIRONMENT
+        value: production

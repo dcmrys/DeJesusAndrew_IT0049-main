@@ -1,0 +1,9 @@
+.git
+.env
+.DS_Store
+Dockerfile*
+README.md
+phpunit.xml.dist
+tests/
+vendor/
+writable/
